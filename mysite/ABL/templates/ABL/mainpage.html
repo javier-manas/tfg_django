@@ -1,0 +1,72 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'ABL/style.css' %}">
+
+<div class="container">
+    <div class="titlebar">
+        <h1>ABL</h1>
+        
+
+    </div>
+    <form id="formulario" action="{% url 'resultados' %}" method="post">
+        {% csrf_token %}
+        <div class="caja1">
+
+            
+            <div class="categoriastxt">
+                <p>porfavor ecoja modelo que analizara el texto entregado</p>
+                
+                
+            </div>
+            <div class="categorias">
+                <style>
+                    label {
+                        color: rgb(205, 205, 206);
+                        margin-right: 5%;
+                    }
+                </style>
+
+                    <input type="checkbox" id="amarillo" name="modelo" value="amarillo">
+                    <label for="amarillo">Amarillo</label>
+                    
+                    
+                    <input type="checkbox" id="azul" name="modelo" value="azul">
+                    <label for="azul">Azul</label>
+                    
+                    <input type="checkbox" id="rojo" name="modelo" value="rojo">
+                    <label for="rojo">Rojo</label><br><br>
+                    
+                
+                
+            </div>
+        </div>
+    
+        <div class="caja2">
+            
+            
+            <div class="promptTxt">
+                <p>porfavor escriba frase</p>
+                
+            </div>
+            <div class="submiter">
+                
+                    <input type="text" id="texto" name="texto">
+                    <div class="boton">
+                        <input type="submit" value="procesar">
+                    </div>
+                    
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <p class="error-message">{{ message }}</p>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    
+            </div>
+        </div> 
+    </form>
+   
+</div>
+
+

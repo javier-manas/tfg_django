@@ -1,0 +1,17 @@
+<h1> titulo pequeño </h1>
+<p>Texto ingresado:</p>
+<p>{{ frase }}</p>
+
+<p>Categorías seleccionadas:</p>
+<ul>
+    {% for categoria in categorias %}
+        <li>{{ categoria }}</li>
+    {% endfor %}
+</ul>
+
+<p>Todo lo referente a la IA:</p>
+<p>1 puedo llamar a huggingface y se me devuelve algo</p>
+<p>Resultado del modelo: {{ resultado  }}</p>
+<div>{{ grafico_html|safe }}</div>
+
+<a href="{% url 'mainpage'%}">mainpage</a>
