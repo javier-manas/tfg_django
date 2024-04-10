@@ -1,17 +1,33 @@
-<h1> titulo pequeño </h1>
-<p>Texto ingresado:</p>
-<p>{{ frase }}</p>
+{% load static %}
+<link rel="stylesheet" href="{% static 'ABL/style.css' %}">
 
-<p>Categorías seleccionadas:</p>
-<ul>
-    {% for categoria in categorias %}
-        <li>{{ categoria }}</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="titlebar">
+        <h1>Resultados</h1>
+    </div>
+    <div class="container2">
+        <a href="{% url 'mainpage'%}">mainpage</a>
+        <div class="caja3">
+            <p>Texto ingresado:</p>
+            <p>{{ frase }}</p>
 
-<p>Todo lo referente a la IA:</p>
-<p>1 puedo llamar a huggingface y se me devuelve algo</p>
-<p>Resultado del modelo: {{ resultado  }}</p>
-<div>{{ grafico_html|safe }}</div>
+            <p>Categorías seleccionadas:</p>
+            <ul>
+                {% for categoria in categorias %}
+                    <li>{{ categoria }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 
-<a href="{% url 'mainpage'%}">mainpage</a>
+
+        <div class="caja4">
+            <div>{% for grafico_html in graficos %}
+                    {% if grafico_html %}
+                        {{ grafico_html|safe }}
+                    {% endif %}
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
