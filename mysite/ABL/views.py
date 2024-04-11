@@ -107,6 +107,15 @@ def resultados(request):
             grafico_html_3 = plot(fig, output_type='div')
 
 
+        if 'mrovejaxd/FNST_b' in categorias:
+            aux = categorias.index('mrovejaxd/FNST_b')
+            categorias[aux] = 'FNST'
+        if 'mrovejaxd/ABL_d' in categorias:
+            aux = categorias.index('mrovejaxd/ABL_d')
+            categorias[aux] = 'ABL'
+        if 'mrovejaxd/goemotions_bertspanish_finetunig_d' in categorias:
+            aux = categorias.index('mrovejaxd/goemotions_bertspanish_finetunig_d')
+            categorias[aux] = 'Emociones'
 
         return render(request, 'ABL/resultados.html', {'frase': frase, 'categorias': categorias,  'graficos': [grafico_html_1, grafico_html_2, grafico_html_3]})
     return redirect('mainpage')
