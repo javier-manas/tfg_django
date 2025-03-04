@@ -31,7 +31,7 @@ plt.pie(porcentajes, labels=categorias, autopct='%1.1f%%', startangle=140)
 plt.axis('equal')  # Aspecto igual para que el gráfico sea un círculo
 
 #plt.show()
-'''
+
 
 #-------------------------------------------------------------------------------------------
 
@@ -70,3 +70,4 @@ for i, label in enumerate(ax.get_xticklabels()):
 
 plt.show()
 
+'''
