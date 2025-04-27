@@ -10,14 +10,7 @@ from plotly.offline import plot
 import re
 
 def mainpage(request):
-    frase='soy feliz'
-    classifier = pipeline("text-classification",model= "mrovejaxd/FNST_trad_k", return_all_scores=True)
-    aux = classifier(frase)
-    classifier = pipeline("text-classification",model= "mrovejaxd/ABL_trad_k", return_all_scores=True)
-    aux = classifier(frase)
-    classifier = pipeline("text-classification",model= "mrovejaxd/goemotions_bertspanish_finetunig_d", return_all_scores=True)
-    aux = classifier(frase)
-
+    
     return render(request, 'ABL/mainpage.html')
 
 
@@ -56,7 +49,7 @@ def resultados(request):
         frases = [frase.strip() for frase in frases if frase.strip()]
 
         #Grafico 1
-        if ("mrovejaxd/FNST_b" in categorias):
+        if ("mrovejaxd/FNST_trad_2j" in categorias):
             classifier = pipeline("text-classification",model= "mrovejaxd/FNST_trad_2j", return_all_scores=True)
             for h in range(len(frases)):
 
@@ -90,7 +83,7 @@ def resultados(request):
             grafico_html_1 = plot(fig, output_type='div')
 
         #Grafico 2
-        if ("mrovejaxd/ABL_d" in categorias):
+        if ("mrovejaxd/ABL_trad_2h" in categorias):
             classifier = pipeline("text-classification",model= "mrovejaxd/ABL_trad_2h", return_all_scores=True)
             for h in range(len(frases)):
 
